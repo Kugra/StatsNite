@@ -22,6 +22,18 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"/>
 
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spnPlatform"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvTitle"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,7 +41,7 @@
         android:hint="In game name"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/spnPlatform"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"/>
