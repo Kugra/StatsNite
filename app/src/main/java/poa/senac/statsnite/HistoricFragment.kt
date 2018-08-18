@@ -5,18 +5,22 @@ import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import io.realm.Realm
 import kotlinx.android.synthetic.main.fragment_historic.*
 import poa.senac.statsnite.Adapter.StatsNiteRecyclerAdapter
 import poa.senac.statsnite.Model.StatsNitePlayer
+import java.util.*
 
 class HistoricFragment : Fragment() {
 
     private val playerList: MutableList<StatsNitePlayer> = mutableListOf()
 
     private lateinit var adapter: StatsNiteRecyclerAdapter
+    private lateinit var realm: Realm
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        realm = Realm.getDefaultInstance()
 
         return inflater.inflate(R.layout.fragment_historic, container, false)
     }
@@ -24,10 +28,15 @@ class HistoricFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        getHistoricPlayers()
         initReciclerView()
+        getHistoricPlayers()
     }
 
+    override fun onResume() {
+        super.onResume()
+        getHistoricPlayers()
+    }
+    
     private fun initReciclerView(){
         var recyclerView = rcvHistoric
         adapter = StatsNiteRecyclerAdapter(playerList, activity!!.applicationContext)
@@ -37,8 +46,15 @@ class HistoricFragment : Fragment() {
         recyclerView.layoutManager = layoutManager
     }
 
-    private fun getHistoricPlayers(){
-        playerList.add(StatsNitePlayer("Rubenito", "PC"))
-        playerList.add(StatsNitePlayer("Buiuia", "PS4"))
+     fun getHistoricPlayers(){
+        realm.beginTransaction()
+
+        val result = realm.where(StatsNitePlayer::class.java)
+                .findAll()
+        realm.commitTransaction()
+
+        playerList.clear()
+        adapter.clear()
+        playerList.addAll(result)
     }
 }

@@ -21,4 +21,10 @@ class StatsNiteRecyclerAdapter(private var playerList: MutableList<StatsNitePlay
             it.bindView(player)
         }
     }
+
+    fun clear(){
+        playerList.clear()
+        notifyDataSetChanged()
+    }
+
 }

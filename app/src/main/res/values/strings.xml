@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Stats Nite</string>
+    <string-array name="platform_array">
+        <item>PC</item>
+        <item>PS4</item>
+        <item>Xone</item>
+    </string-array>
 </resources>

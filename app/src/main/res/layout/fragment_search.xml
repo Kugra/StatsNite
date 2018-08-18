@@ -31,8 +31,10 @@
         app:layout_constraintTop_toBottomOf="@+id/txvTitle"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        />
+        android:layout_marginRight="16dp">
+
+    </Spinner>
+
 
     <EditText
         android:layout_width="match_parent"

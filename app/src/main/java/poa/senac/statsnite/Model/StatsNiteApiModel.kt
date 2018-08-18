@@ -2,499 +2,320 @@ package poa.senac.statsnite.Model
 
 
 data class StatsNiteApiModel(
-    val accountId: String,
-    val platformId: Int,
-    val platformName: String,
-    val platformNameLong: String,
-    val epicUserHandle: String,
-    val stats: Stats,
-    val lifeTimeStats: List<LifeTimeStat>,
-    val recentMatches: List<RecentMatche>
+    var accountId: String,
+    var platformId: Int,
+    var platformName: String,
+    var platformNameLong: String,
+    var epicUserHandle: String,
+    var stats: Stats,
+    var lifeTimeStats: List<LifeTimeStat>,
+    var recentMatches: List<RecentMatche>
+){
+
+inner class RecentMatche(
+    var id: Int,
+    var accountId: String,
+    var playlist: String,
+    var kills: Int,
+    var minutesPlayed: Int,
+    var top1: Int,
+    var top5: Int,
+    var top6: Int,
+    var top10: Int,
+    var top12: Int,
+    var top25: Int,
+    var matches: Int,
+    var top3: Int,
+    var dateCollected: String,
+    var score: Int,
+    var platform: Int,
+    var trnRating: Double,
+    var trnRatingChange: Double
 )
 
-data class RecentMatche(
-    val id: Int,
-    val accountId: String,
-    val playlist: String,
-    val kills: Int,
-    val minutesPlayed: Int,
-    val top1: Int,
-    val top5: Int,
-    val top6: Int,
-    val top10: Int,
-    val top12: Int,
-    val top25: Int,
-    val matches: Int,
-    val top3: Int,
-    val dateCollected: String,
-    val score: Int,
-    val platform: Int,
-    val trnRating: Double,
-    val trnRatingChange: Double
+
+inner class Stats(
+    var p2: P2,
+    var p10: P10,
+    var p9: P9,
+    var curr_p2: CurrP2,
+    var curr_p10: CurrP10,
+    var curr_p9: CurrP9
 )
 
-data class Stats(
-    val p2: P2,
-    val p10: P10,
-    val p9: P9,
-    val curr_p2: CurrP2,
-    val curr_p10: CurrP10,
-    val curr_p9: CurrP9
+inner class CurrP9(
+    var trnRating: TrnRating,
+    var score: Score,
+    var top1: Top1,
+    var top3: Top3,
+    var top5: Top5,
+    var top6: Top6,
+    var top10: Top10,
+    var top12: Top12,
+    var top25: Top25,
+    var kd: Kd,
+    var winRatio: WinRatio,
+    var matches: Matches,
+    var kills: Kills,
+    var kpg: Kpg,
+    var scorePerMatch: ScorePerMatch
 )
 
-data class CurrP9(
-    val trnRating: TrnRating,
-    val score: Score,
-    val top1: Top1,
-    val top3: Top3,
-    val top5: Top5,
-    val top6: Top6,
-    val top10: Top10,
-    val top12: Top12,
-    val top25: Top25,
-    val kd: Kd,
-    val winRatio: WinRatio,
-    val matches: Matches,
-    val kills: Kills,
-    val kpg: Kpg,
-    val scorePerMatch: ScorePerMatch
+inner class Top12(
+    var label: String,
+    var field: String,
+    var category: String,
+    var varueInt: Int,
+    var varue: String,
+    var rank: Int,
+    var displayvarue: String
 )
 
-data class Top12(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val displayValue: String
+inner class Top6(
+    var label: String,
+    var field: String,
+    var category: String,
+    var varueInt: Int,
+    var varue: String,
+    var rank: Int,
+    var percentile: Int,
+    var displayvarue: String
 )
 
-data class Top6(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Int,
-    val displayValue: String
+inner class Kpg(
+    var label: String,
+    var field: String,
+    var category: String,
+    var varueDec: Double,
+    var varue: String,
+    var rank: Int,
+    var percentile: Int,
+    var displayvarue: String
 )
 
-data class Matches(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Int,
-    val displayValue: String
+inner class ScorePerMatch(
+    var label: String,
+    var field: String,
+    var category: String,
+    var varueDec: Double,
+    var varue: String,
+    var rank: Int,
+    var percentile: Int,
+    var displayvarue: String
 )
 
-data class Kpg(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueDec: Double,
-    val value: String,
-    val rank: Int,
-    val percentile: Int,
-    val displayValue: String
+inner class Kd(
+    var label: String,
+    var field: String,
+    var category: String,
+    var varueDec: Double,
+    var varue: String,
+    var rank: Int,
+    var percentile: Int,
+    var displayvarue: String
 )
 
-data class Top5(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val displayValue: String
+inner class TrnRating(
+    var label: String,
+    var field: String,
+    var category: String,
+    var varueInt: Int,
+    var varue: String,
+    var rank: Int,
+    var percentile: Int,
+    var displayvarue: String
 )
 
-data class Score(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Int,
-    val displayValue: String
+inner class CurrP2(
+    var trnRating: TrnRating,
+    var score: Score,
+    var top1: Top1,
+    var top3: Top3,
+    var top5: Top5,
+    var top6: Top6,
+    var top10: Top10,
+    var top12: Top12,
+    var top25: Top25,
+    var kd: Kd,
+    var winRatio: WinRatio,
+    var matches: Matches,
+    var kills: Kills,
+    var kpg: Kpg,
+    var scorePerMatch: ScorePerMatch
 )
 
-data class WinRatio(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueDec: Double,
-    val value: String,
-    val rank: Int,
-    val percentile: Int,
-    val displayValue: String
+inner class Top3(
+    var label: String,
+    var field: String,
+    var category: String,
+    var varueInt: Int,
+    var varue: String,
+    var rank: Int,
+    var displayvarue: String
 )
 
-data class Top3(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Int,
-    val displayValue: String
+inner class P10(
+    var trnRating: TrnRating,
+    var score: Score,
+    var top1: Top1,
+    var top3: Top3,
+    var top5: Top5,
+    var top6: Top6,
+    var top10: Top10,
+    var top12: Top12,
+    var top25: Top25,
+    var kd: Kd,
+    var winRatio: WinRatio,
+    var matches: Matches,
+    var kills: Kills,
+    var kpg: Kpg,
+    var scorePerMatch: ScorePerMatch
 )
 
-data class Top25(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val displayValue: String
+inner class Score(
+    var label: String,
+    var field: String,
+    var category: String,
+    var varueInt: Int,
+    var varue: String,
+    var rank: Int,
+    var percentile: Double,
+    var displayvarue: String
 )
 
-data class Top10(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val displayValue: String
+inner class Top5(
+    var label: String,
+    var field: String,
+    var category: String,
+    var varueInt: Int,
+    var varue: String,
+    var rank: Int,
+    var percentile: Double,
+    var displayvarue: String
 )
 
-data class Kills(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Int,
-    val displayValue: String
+inner class Matches(
+    var label: String,
+    var field: String,
+    var category: String,
+    var varueInt: Int,
+    var varue: String,
+    var rank: Int,
+    var percentile: Double,
+    var displayvarue: String
 )
 
-data class ScorePerMatch(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueDec: Double,
-    val value: String,
-    val rank: Int,
-    val percentile: Int,
-    val displayValue: String
+inner class Top1(
+    var label: String,
+    var field: String,
+    var category: String,
+    var varueInt: Int,
+    var varue: String,
+    var rank: Int,
+    var percentile: Double,
+    var displayvarue: String
 )
 
-data class Kd(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueDec: Double,
-    val value: String,
-    val rank: Int,
-    val percentile: Int,
-    val displayValue: String
+inner class Kills(
+    var label: String,
+    var field: String,
+    var category: String,
+    var varueInt: Int,
+    var varue: String,
+    var rank: Int,
+    var percentile: Double,
+    var displayvarue: String
 )
 
-data class TrnRating(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Int,
-    val displayValue: String
+inner class P9(
+    var trnRating: TrnRating,
+    var score: Score,
+    var top1: Top1,
+    var top3: Top3,
+    var top5: Top5,
+    var top6: Top6,
+    var top10: Top10,
+    var top12: Top12,
+    var top25: Top25,
+    var kd: Kd,
+    var winRatio: WinRatio,
+    var matches: Matches,
+    var kills: Kills,
+    var kpg: Kpg,
+    var scorePerMatch: ScorePerMatch
 )
 
-data class Top1(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Int,
-    val displayValue: String
+inner class CurrP10(
+    var trnRating: TrnRating,
+    var score: Score,
+    var top1: Top1,
+    var top3: Top3,
+    var top5: Top5,
+    var top6: Top6,
+    var top10: Top10,
+    var top12: Top12,
+    var top25: Top25,
+    var kd: Kd,
+    var winRatio: WinRatio,
+    var matches: Matches,
+    var kills: Kills,
+    var kpg: Kpg,
+    var scorePerMatch: ScorePerMatch
 )
 
-data class CurrP2(
-    val trnRating: TrnRating,
-    val score: Score,
-    val top1: Top1,
-    val top3: Top3,
-    val top5: Top5,
-    val top6: Top6,
-    val top10: Top10,
-    val top12: Top12,
-    val top25: Top25,
-    val kd: Kd,
-    val winRatio: WinRatio,
-    val matches: Matches,
-    val kills: Kills,
-    val kpg: Kpg,
-    val scorePerMatch: ScorePerMatch
+inner class WinRatio(
+    var label: String,
+    var field: String,
+    var category: String,
+    var varueDec: Int,
+    var varue: String,
+    var rank: Int,
+    var percentile: Int,
+    var displayvarue: String
 )
 
-data class WinRatio(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueDec: Int,
-    val value: String,
-    val rank: Int,
-    val displayValue: String
+
+inner class P2(
+    var trnRating: TrnRating,
+    var score: Score,
+    var top1: Top1,
+    var top3: Top3,
+    var top5: Top5,
+    var top6: Top6,
+    var top10: Top10,
+    var top12: Top12,
+    var top25: Top25,
+    var kd: Kd,
+    var winRatio: WinRatio,
+    var matches: Matches,
+    var kills: Kills,
+    var kpg: Kpg,
+    var scorePerMatch: ScorePerMatch
 )
 
-data class Top3(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val displayValue: String
+inner class Top10(
+    var label: String,
+    var field: String,
+    var category: String,
+    var varueInt: Int,
+    var varue: String,
+    var rank: Int,
+    var percentile: Double,
+    var displayvarue: String
 )
 
-data class Top6(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val displayValue: String
+inner class Top25(
+    var label: String,
+    var field: String,
+    var category: String,
+    var varueInt: Int,
+    var varue: String,
+    var rank: Int,
+    var percentile: Double,
+    var displayvarue: String
 )
 
-data class Top1(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val displayValue: String
-)
-
-data class Top25(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Int,
-    val displayValue: String
-)
-
-data class Top10(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Int,
-    val displayValue: String
-)
-
-data class P10(
-    val trnRating: TrnRating,
-    val score: Score,
-    val top1: Top1,
-    val top3: Top3,
-    val top5: Top5,
-    val top6: Top6,
-    val top10: Top10,
-    val top12: Top12,
-    val top25: Top25,
-    val kd: Kd,
-    val winRatio: WinRatio,
-    val matches: Matches,
-    val kills: Kills,
-    val kpg: Kpg,
-    val scorePerMatch: ScorePerMatch
-)
-
-data class Score(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Double,
-    val displayValue: String
-)
-
-data class Top5(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Double,
-    val displayValue: String
-)
-
-data class Top12(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Double,
-    val displayValue: String
-)
-
-data class Matches(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Double,
-    val displayValue: String
-)
-
-data class Top1(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Double,
-    val displayValue: String
-)
-
-data class Kills(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Double,
-    val displayValue: String
-)
-
-data class P9(
-    val trnRating: TrnRating,
-    val score: Score,
-    val top1: Top1,
-    val top3: Top3,
-    val top5: Top5,
-    val top6: Top6,
-    val top10: Top10,
-    val top12: Top12,
-    val top25: Top25,
-    val kd: Kd,
-    val winRatio: WinRatio,
-    val matches: Matches,
-    val kills: Kills,
-    val kpg: Kpg,
-    val scorePerMatch: ScorePerMatch
-)
-
-data class Top6(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Double,
-    val displayValue: String
-)
-
-data class CurrP10(
-    val trnRating: TrnRating,
-    val score: Score,
-    val top1: Top1,
-    val top3: Top3,
-    val top5: Top5,
-    val top6: Top6,
-    val top10: Top10,
-    val top12: Top12,
-    val top25: Top25,
-    val kd: Kd,
-    val winRatio: WinRatio,
-    val matches: Matches,
-    val kills: Kills,
-    val kpg: Kpg,
-    val scorePerMatch: ScorePerMatch
-)
-
-data class WinRatio(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueDec: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Int,
-    val displayValue: String
-)
-
-data class Top5(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Int,
-    val displayValue: String
-)
-
-data class P2(
-    val trnRating: TrnRating,
-    val score: Score,
-    val top1: Top1,
-    val top3: Top3,
-    val top5: Top5,
-    val top6: Top6,
-    val top10: Top10,
-    val top12: Top12,
-    val top25: Top25,
-    val kd: Kd,
-    val winRatio: WinRatio,
-    val matches: Matches,
-    val kills: Kills,
-    val kpg: Kpg,
-    val scorePerMatch: ScorePerMatch
-)
-
-data class Top10(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Double,
-    val displayValue: String
-)
-
-data class Top25(
-    val label: String,
-    val field: String,
-    val category: String,
-    val valueInt: Int,
-    val value: String,
-    val rank: Int,
-    val percentile: Double,
-    val displayValue: String
-)
-
-data class LifeTimeStat(
-    val key: String,
-    val value: String
-)
+inner class LifeTimeStat(
+    var key: String,
+    var varue: String
+)}
