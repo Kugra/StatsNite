@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import io.realm.Realm
 import kotlinx.android.synthetic.main.fragment_search.*
 import poa.senac.statsnite.Model.StatsNitePlayer
@@ -46,28 +47,33 @@ class SearchFragment : Fragment() {
         var button = btnSearch
 
         button.setOnClickListener {
-            realm.beginTransaction()
+            if(nickname.text.length > 3) {
+                realm.beginTransaction()
 
-            val realmId = realm.where(StatsNitePlayer::class.java).max("Id")
-            val nextId: Int
+                val realmId = realm.where(StatsNitePlayer::class.java).max("Id")
+                val nextId: Int
 
-            nextId = if (realmId == null) {
-                0
-            } else {
-                realmId.toInt() + 1
+                nextId = if (realmId == null) {
+                    0
+                } else {
+                    realmId.toInt() + 1
+                }
+
+                var playerObject = realm.createObject(StatsNitePlayer::class.java, nextId)
+                playerObject.Platform = platform.selectedItem.toString()
+                playerObject.Name = nickname.text.toString()
+                realm.commitTransaction()
+
+                var bundle = Bundle()
+                bundle.putString("platform", platform.selectedItem.toString())
+                bundle.putString("nickname", nickname.text.toString())
+
+                nickname.text = null
+                startActivity(Intent(activity!!.applicationContext, StatsActivity::class.java).putExtra("bundle", bundle))
             }
-
-            var playerObject = realm.createObject(StatsNitePlayer::class.java, nextId)
-            playerObject.Platform = platform.selectedItem.toString()
-            playerObject.Name = nickname.text.toString()
-            realm.commitTransaction()
-
-            var bundle = Bundle()
-            bundle.putString("platform", platform.selectedItem.toString())
-            bundle.putString("nickname", nickname.text.toString())
-
-            nickname.text = null
-            startActivity(Intent(activity!!.applicationContext,StatsActivity::class.java).putExtra("bundle", bundle))
+            else{
+                Toast.makeText(activity!!.applicationContext, "Min 3 characters", Toast.LENGTH_LONG).show()
+            }
         }
     }
 }

@@ -3,7 +3,7 @@ package poa.senac.statsnite.Model
 
 data class StatsNiteApiModel(
     var accountId: String,
-    var platformId: Int,
+    var platformId: String,
     var platformName: String,
     var platformNameLong: String,
     var epicUserHandle: String,
@@ -13,24 +13,24 @@ data class StatsNiteApiModel(
 ){
 
 inner class RecentMatche(
-    var id: Int,
+    var id: String,
     var accountId: String,
     var playlist: String,
-    var kills: Int,
-    var minutesPlayed: Int,
-    var top1: Int,
-    var top5: Int,
-    var top6: Int,
-    var top10: Int,
-    var top12: Int,
-    var top25: Int,
-    var matches: Int,
-    var top3: Int,
+    var kills: String,
+    var minutesPlayed: String,
+    var top1: String,
+    var top5: String,
+    var top6: String,
+    var top10: String,
+    var top12: String,
+    var top25: String,
+    var matches: String,
+    var top3: String,
     var dateCollected: String,
-    var score: Int,
-    var platform: Int,
-    var trnRating: Double,
-    var trnRatingChange: Double
+    var score: String,
+    var platform: String,
+    var trnRating: String,
+    var trnRatingChange: String
 )
 
 
@@ -65,65 +65,65 @@ inner class Top12(
     var label: String,
     var field: String,
     var category: String,
-    var varueInt: Int,
-    var varue: String,
-    var rank: Int,
-    var displayvarue: String
+    var valueInt: String,
+    var value: String,
+    var rank: String,
+    var displayvalue: String
 )
 
 inner class Top6(
     var label: String,
     var field: String,
     var category: String,
-    var varueInt: Int,
-    var varue: String,
-    var rank: Int,
-    var percentile: Int,
-    var displayvarue: String
+    var valueInt: String,
+    var value: String,
+    var rank: String,
+    var percentile: String,
+    var displayvalue: String
 )
 
 inner class Kpg(
     var label: String,
     var field: String,
     var category: String,
-    var varueDec: Double,
-    var varue: String,
-    var rank: Int,
-    var percentile: Int,
-    var displayvarue: String
+    var valueDec: String,
+    var value: String,
+    var rank: String,
+    var percentile: String,
+    var displayvalue: String
 )
 
 inner class ScorePerMatch(
     var label: String,
     var field: String,
     var category: String,
-    var varueDec: Double,
-    var varue: String,
-    var rank: Int,
-    var percentile: Int,
-    var displayvarue: String
+    var valueDec: String,
+    var value: String,
+    var rank: String,
+    var percentile: String,
+    var displayvalue: String
 )
 
 inner class Kd(
     var label: String,
     var field: String,
     var category: String,
-    var varueDec: Double,
-    var varue: String,
-    var rank: Int,
-    var percentile: Int,
-    var displayvarue: String
+    var valueDec: String,
+    var value: String,
+    var rank: String,
+    var percentile: String,
+    var displayvalue: String
 )
 
 inner class TrnRating(
     var label: String,
     var field: String,
     var category: String,
-    var varueInt: Int,
-    var varue: String,
-    var rank: Int,
-    var percentile: Int,
-    var displayvarue: String
+    var valueInt: String,
+    var value: String,
+    var rank: String,
+    var percentile: String,
+    var displayvalue: String
 )
 
 inner class CurrP2(
@@ -148,10 +148,10 @@ inner class Top3(
     var label: String,
     var field: String,
     var category: String,
-    var varueInt: Int,
-    var varue: String,
-    var rank: Int,
-    var displayvarue: String
+    var valueInt: String,
+    var value: String,
+    var rank: String,
+    var displayvalue: String
 )
 
 inner class P10(
@@ -176,55 +176,55 @@ inner class Score(
     var label: String,
     var field: String,
     var category: String,
-    var varueInt: Int,
-    var varue: String,
-    var rank: Int,
-    var percentile: Double,
-    var displayvarue: String
+    var valueInt: String,
+    var value: String,
+    var rank: String,
+    var percentile: String,
+    var displayvalue: String
 )
 
 inner class Top5(
     var label: String,
     var field: String,
     var category: String,
-    var varueInt: Int,
-    var varue: String,
-    var rank: Int,
-    var percentile: Double,
-    var displayvarue: String
+    var valueInt: String,
+    var value: String,
+    var rank: String,
+    var percentile: String,
+    var displayvalue: String
 )
 
 inner class Matches(
     var label: String,
     var field: String,
     var category: String,
-    var varueInt: Int,
-    var varue: String,
-    var rank: Int,
-    var percentile: Double,
-    var displayvarue: String
+    var valueInt: String,
+    var value: String,
+    var rank: String,
+    var percentile: String,
+    var displayvalue: String
 )
 
 inner class Top1(
     var label: String,
     var field: String,
     var category: String,
-    var varueInt: Int,
-    var varue: String,
-    var rank: Int,
-    var percentile: Double,
-    var displayvarue: String
+    var valueInt: String,
+    var value: String,
+    var rank: String,
+    var percentile: String,
+    var displayvalue: String
 )
 
 inner class Kills(
     var label: String,
     var field: String,
     var category: String,
-    var varueInt: Int,
-    var varue: String,
-    var rank: Int,
-    var percentile: Double,
-    var displayvarue: String
+    var valueInt: String,
+    var value: String,
+    var rank: String,
+    var percentile: String,
+    var displayvalue: String
 )
 
 inner class P9(
@@ -267,11 +267,11 @@ inner class WinRatio(
     var label: String,
     var field: String,
     var category: String,
-    var varueDec: Int,
-    var varue: String,
-    var rank: Int,
-    var percentile: Int,
-    var displayvarue: String
+    var valueDec: String,
+    var value: String,
+    var rank: String,
+    var percentile: String,
+    var displayvalue: String
 )
 
 
@@ -297,25 +297,25 @@ inner class Top10(
     var label: String,
     var field: String,
     var category: String,
-    var varueInt: Int,
-    var varue: String,
-    var rank: Int,
-    var percentile: Double,
-    var displayvarue: String
+    var valueInt: String,
+    var value: String,
+    var rank: String,
+    var percentile: String,
+    var displayvalue: String
 )
 
 inner class Top25(
     var label: String,
     var field: String,
     var category: String,
-    var varueInt: Int,
-    var varue: String,
-    var rank: Int,
-    var percentile: Double,
-    var displayvarue: String
+    var valueInt: String,
+    var value: String,
+    var rank: String,
+    var percentile: String,
+    var displayvalue: String
 )
 
 inner class LifeTimeStat(
     var key: String,
-    var varue: String
+    var value: String
 )}
